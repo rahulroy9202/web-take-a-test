@@ -9,7 +9,8 @@
         <div style="height: 346px">
 
             <asp:Panel ID="Panel1_Login" runat="server"                                            
-                style="z-index: 1; left: 250px; top: 229px; position: absolute; height: 130px; width:260px">
+                
+                style="z-index: 1; left: 436px; top: 264px; position: absolute; height: 130px; width:260px">
                 
 
                 <asp:Label ID="UsernameL" runat="server" 
