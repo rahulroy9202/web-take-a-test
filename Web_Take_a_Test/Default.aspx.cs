@@ -16,8 +16,8 @@ namespace Web_Take_a_Test
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Session["un"]= 
-            Response.Redirect("profile.aspx");
+            if(TextBox1.Text!="" && TextBox2.Text!="")
+                Response.Redirect("profile.aspx");
         }
     }
 }

@@ -10,7 +10,8 @@
 
             <asp:Panel ID="Panel1_Login" runat="server"                                            
                 
-                style="z-index: 1; left: 436px; top: 264px; position: absolute; height: 130px; width:260px">
+                
+                style="z-index: 1; left: 541px; top: 269px; position: absolute; height: 130px; width:260px; border-top-style: solid; border-top-color: #696969; border-bottom-style: solid; border-bottom-color: #696969;">
                 
 
                 <asp:Label ID="UsernameL" runat="server" 
@@ -23,10 +24,11 @@
                     style="z-index: 1; left: 100px; top: 20px; position: absolute; height: 18px; width: 120px">
                     </asp:TextBox>
                 <asp:TextBox ID="TextBox2" runat="server"
-                    style="z-index: 1; left: 100px; top: 50px; position: absolute; height: 18px; width: 120px">
-                    </asp:TextBox>
+                    
+                    style="z-index: 1; left: 100px; top: 50px; position: absolute; height: 18px; width: 120px" 
+                    TextMode="Password"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" 
-                    style="z-index: 1; left: 151px; top: 87px; position: absolute; height: 26px; width: 75px" 
+                    style="border-style: solid; border-color: #333333; z-index: 1; left: 103px; top: 87px; position: absolute; height: 38px; width: 118px; color: #FFFFFF; font-size: medium; font-family: 'Segoe UI Semilight'; background-color: #999999;" 
                     Text="Login" onclick="Button1_Click" />
 
                              
