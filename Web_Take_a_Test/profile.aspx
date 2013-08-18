@@ -4,13 +4,13 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
-        Take a Test</h2>
-        <h3>Welcome 
+    <h1>
+        Rules &amp; regulations</h1>
+        <h3>Welcome</h3> 
             <asp:Label  ID="Label1" runat="server" 
-                style="z-index: 1; left: 105px; top: 179px; position: absolute; height: 25px; width: 110px" 
+                style="z-index: 1; left: 439px; top: 178px; position: absolute; height: 25px; width: 110px" 
                 Text="Label"></asp:Label>
-    </h3>
+    
         <div style="height: 346px">
 
             

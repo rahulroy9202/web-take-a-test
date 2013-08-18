@@ -11,7 +11,8 @@ namespace Web_Take_a_Test
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-            
+
+            //Label1.Text = "WELCOME     " + Session["un"].ToString();
         }
     }
 }

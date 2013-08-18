@@ -8,5 +8,5 @@
         About
     </h2>
     <p>
-        Developed by Rahul Roy.</p>
+        Developed by Aritro Sen.</p>
 </asp:Content>
