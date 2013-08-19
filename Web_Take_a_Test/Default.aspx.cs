@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 
 namespace Web_Take_a_Test
 {
     public partial class _Default : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=traveller;Integrated Security=True;Pooling=False");
+        SqlCommand cmd;
+        SqlDataReader read;
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["un"] = "anonymous";
@@ -16,8 +20,26 @@ namespace Web_Take_a_Test
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if(TextBox1.Text!="" && TextBox2.Text!="")
-                Response.Redirect("profile.aspx");
+            con.Open();
+            cmd = new SqlCommand("select * from TestDB",con);
+            read = cmd.ExecuteReader();
+            while (read.Read()) {
+                if (read[0].ToString() == TextBox1.Text && read[1].ToString() == TextBox2.Text)
+                    Response.Write("Success!");
+                break;
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            cmd = new SqlCommand("insert into TestDB(UserId,Password) values(@uid,@pass)",con);
+            cmd.Parameters.AddWithValue("@uid", TextBox3.Text);
+            cmd.Parameters.AddWithValue("@pass",TextBox4.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            TextBox3.Text = "";
+            TextBox4.Text = "";
         }
     }
 }
