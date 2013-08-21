@@ -18,21 +18,32 @@ namespace Web_Take_a_Test
         protected void Button1_Click(object sender, EventArgs e)
         {
             //Session["un"]=
-            
-                SqlConnection con = new SqlConnection("Data Source=ARITRO-HP\\SQL2008; Initial Catalog=participants;Integrated Security=True");
+
+            SqlConnection con = new SqlConnection(@"Data Source=RAHULROY-DESKPC\RAHULROYDESKTOP;Initial Catalog=EvaluateYourSelf;Integrated Security=True");
                 con.Open();
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("select * from students where uname='" + TextBox1.Text + "' and pass='" + TextBox2.Text + "'", con);
+
+                    Label6.Text = "ConOpen TRY";
+                     
+
+                    SqlCommand cmd = new SqlCommand("select * from logins_DB where UserName='" + TextBox1.Text + "' and Password='" + TextBox2.Text + "'", con);
                     SqlDataReader sdr = cmd.ExecuteReader();
-                    if (sdr.Read())
+
+                    Label6.Text = "ConOpen @2";
+                     
+                    while(sdr.Read())
                     {
+                        Label6.Text="ConOpen";
                         Session["un"] = TextBox1.Text;
                         Response.Redirect("profile.aspx");
                     }
                 }
                 catch (Exception se)
                 {
+
+                    Label6.Text = "ConOpen ERROR";
+                     
                     Response.Write(se.Message);
                 }
                 finally
@@ -71,7 +82,7 @@ namespace Web_Take_a_Test
                     con.Close();
                     Response.Redirect("Default.aspx");
                 }
-            }
-        }
-    }
+         }
+     }
+}
 

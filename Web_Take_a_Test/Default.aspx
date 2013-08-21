@@ -47,7 +47,7 @@
                 position: absolute" TextMode="Password"></asp:TextBox>
             <asp:TextBox ID="TextBox7" runat="server" Style="z-index: 1; left: 381px; top: 363px;
                 position: absolute" TextMode="Password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Blank"
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Blank"
                 Style="z-index: 1; left: 576px; top: 186px; position: absolute" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Blank"
                 Style="z-index: 1; left: 576px; top: 226px; position: absolute" ControlToValidate="TextBox4"></asp:RequiredFieldValidator>
@@ -56,7 +56,9 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Plz enter your password"
                 Style="z-index: 1; left: 573px; top: 315px; position: absolute" ControlToValidate="TextBox6"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Plz Confirm your password"
-                Style="z-index: 1; left: 574px; top: 367px; position: absolute" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>
+                Style="z-index: 1; left: 574px; top: 367px; position: absolute" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>--%>
+            <asp:Label ID="Label6" runat="server" Text="Label" 
+                style="z-index: 1; left: 92px; top: 489px; position: absolute" ></asp:Label>
         </asp:Panel>
     </div>
 </asp:Content>
