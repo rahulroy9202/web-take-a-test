@@ -67,49 +67,30 @@ namespace Web_Take_a_Test {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-<<<<<<< HEAD
         /// Panel2_Register control.
-=======
-        /// Panel1_Login0 control.
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Panel Panel2_Register;
         
         /// <summary>
         /// Label1 control.
-=======
-        protected global::System.Web.UI.WebControls.Panel Panel1_Login0;
-        
-        /// <summary>
-        /// UsernameL1 control.
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Label2 control.
-=======
-        protected global::System.Web.UI.WebControls.Label UsernameL1;
-        
-        /// <summary>
-        /// PasswordL1 control.
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
@@ -147,9 +128,6 @@ namespace Web_Take_a_Test {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
-=======
-        protected global::System.Web.UI.WebControls.Label PasswordL1;
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
         
         /// <summary>
         /// TextBox3 control.
@@ -170,7 +148,6 @@ namespace Web_Take_a_Test {
         protected global::System.Web.UI.WebControls.TextBox TextBox4;
         
         /// <summary>
-<<<<<<< HEAD
         /// TextBox5 control.
         /// </summary>
         /// <remarks>
@@ -196,21 +173,5 @@ namespace Web_Take_a_Test {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox7;
-        
-        /// <summary>
-        /// Label6 control.
-=======
-        /// Button2 control.
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-<<<<<<< HEAD
-        protected global::System.Web.UI.WebControls.Label Label6;
-=======
-        protected global::System.Web.UI.WebControls.Button Button2;
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
     }
 }

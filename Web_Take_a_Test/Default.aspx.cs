@@ -21,7 +21,7 @@ namespace Web_Take_a_Test
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             //Session["un"]=
 
             SqlConnection con = new SqlConnection(@"Data Source=RAHULROY-DESKPC\RAHULROYDESKTOP;Initial Catalog=EvaluateYourSelf;Integrated Security=True");
@@ -29,17 +29,17 @@ namespace Web_Take_a_Test
                 try
                 {
 
-                    Label6.Text = "ConOpen TRY";
+                   // Label6.Text = "ConOpen TRY";
                      
 
                     SqlCommand cmd = new SqlCommand("select * from logins_DB where UserName='" + TextBox1.Text + "' and Password='" + TextBox2.Text + "'", con);
                     SqlDataReader sdr = cmd.ExecuteReader();
 
-                    Label6.Text = "ConOpen @2";
+                    //Label6.Text = "ConOpen @2";
                      
                     while(sdr.Read())
                     {
-                        Label6.Text="ConOpen";
+                       // Label6.Text="ConOpen";
                         Session["un"] = TextBox1.Text;
                         Response.Redirect("profile.aspx");
                     }
@@ -47,7 +47,7 @@ namespace Web_Take_a_Test
                 catch (Exception se)
                 {
 
-                    Label6.Text = "ConOpen ERROR";
+                   // Label6.Text = "ConOpen ERROR";
                      
                     Response.Write(se.Message);
                 }
@@ -58,7 +58,7 @@ namespace Web_Take_a_Test
             }
             
         
-
+        /*
         protected void Button2_Click(object sender, EventArgs e)
         {
             
@@ -87,9 +87,8 @@ namespace Web_Take_a_Test
                     con.Close();
                     Response.Redirect("Default.aspx");
                 }
-         }
-     }
-=======
+              
+
             con.Open();
             cmd = new SqlCommand("select * from TestDB",con);
             read = cmd.ExecuteReader();
@@ -99,7 +98,7 @@ namespace Web_Take_a_Test
                 break;
             }
         }
-
+        */
         protected void Button2_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -126,6 +125,6 @@ namespace Web_Take_a_Test
             TextBox4.Text = "";
         }
     }
->>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
+
 }
 

@@ -4,7 +4,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-<<<<<<< HEAD
+
     <div style="height: 427px; width: 933px;">
         <asp:Panel ID="Panel1_Login" runat="server" Style="z-index: 1; left: 793px; top: 206px;
             position: absolute; height: 173px; width: 228px">
@@ -58,12 +58,12 @@
                 Style="z-index: 1; left: 573px; top: 315px; position: absolute" ControlToValidate="TextBox6"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Plz Confirm your password"
                 Style="z-index: 1; left: 574px; top: 367px; position: absolute" ControlToValidate="TextBox7"></asp:RequiredFieldValidator>--%>
-            <asp:Label ID="Label6" runat="server" Text="Label" 
-                style="z-index: 1; left: 92px; top: 489px; position: absolute" ></asp:Label>
+            <%--<asp:Label ID="Label6" runat="server" Text="Label" 
+                style="z-index: 1; left: 92px; top: 489px; position: absolute" ></asp:Label>--%>
         </asp:Panel>
     </div>
-=======
-    <h2>
+
+    <%--<h2>
         Take a Test</h2>
         <div style="height: 346px">
 
@@ -128,4 +128,7 @@
 
         </div>
 >>>>>>> d9fe89f22a633dc65ac90b36443e2d10269f6086
+</asp:Content>
+--%>
+
 </asp:Content>
