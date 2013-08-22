@@ -5,22 +5,38 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<asp:Panel ID="QuestionPanel" runat="server" Wrap="True" Height="500" Width="500" 
-        BorderColor="Black" BorderStyle="Dashed" 
-        style="position: absolute; z-index: 1; left: 10%; top: 125px; height: 500px; width: 80%">
-    <asp:Label ID="Label1" runat="server" 
-    style="z-index: 1; left: 13px; top: 16px; position: absolute; height: 17px;" 
-        Text="QUESTION PLACE HOLDER" Font-Bold="True"></asp:Label>
-    <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
-        RepeatDirection="Horizontal" 
-        style="z-index: 1; left: 140px; top: 126px; position: absolute; height: 147px; width: 80%; margin-bottom: 101px">
-        <asp:ListItem Value="0">
-            
-        </asp:ListItem>
-        <asp:ListItem Value="1"></asp:ListItem>
-        <asp:ListItem Value="2"></asp:ListItem>
-        <asp:ListItem Value="3"></asp:ListItem>
-    </asp:RadioButtonList>
+<asp:Panel ID="Question_Paper_Panel" runat="server" Wrap="True"         
+        
+        style="position: absolute; z-index: 1; left: 10%; top: 125px; height: 425px; width: 73%">
+    
+
+    <asp:Panel ID="Questions_Panel" runat="server" Wrap="True"                 
+        
+        style="position: absolute; z-index: 1; top: 12px; left: 9px; height: 205px; width: 683px;">
+        <asp:Label ID="Label1_question" runat="server" 
+        style="z-index: 1; left: 69px; top: 16px; position: absolute; height: 17px;" 
+            Text="QUESTION PLACE HOLDER" Font-Bold="True"></asp:Label>
+        <asp:Label ID="ques_no" runat="server"         
+            style="z-index: 1; left: 21px; top: 16px; position: absolute; height: 17px; font-weight: 700;" ></asp:Label>
+    </asp:Panel>
+
+
+    <asp:Panel ID="Options_Panel" runat="server" Wrap="True" Height="200" Width="450"                 
+        style="position: absolute; z-index: 1; left: 11%; top: 231px; height: 100px; width: 80%">
+        <asp:RadioButton ID="RadioButton2" runat="server"                     
+            style="position: absolute; z-index: 1; left: 20px; top: 67px; font-weight: 700;" />
+        <asp:RadioButton ID="RadioButton1" runat="server" 
+            style="position: absolute; z-index: 1; left: 20px; top: 10px" 
+            CssClass="bold" />
+        <asp:RadioButton ID="RadioButton3" runat="server" 
+            style="position: absolute; z-index: 1; left: 400px; top: 10px" 
+            CssClass="bold" />
+        <asp:RadioButton ID="RadioButton4" runat="server" 
+            style="position: absolute; z-index: 1; left: 400px; top: 67px" 
+            CssClass="bold" />
+     </asp:Panel>   
+    
+        
 </asp:Panel>
 
 </asp:Content>

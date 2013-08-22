@@ -67,13 +67,12 @@ namespace Web_Take_a_Test
         {
 
             Q.AnswerChanged = false;
-            //this.Label1.Text = Convert.ToString(Q.DispQues_No);
-            this.Label1.Text = Convert.ToString(Q.question);
-            //this.RadioButtonList1.Text = Convert.ToString(Q.optns[0]);
-            //this.RadioButtonList1.Items.Add(
-            //this.radioButton2.Text = Convert.ToString(Q.optns[1]);
-            //this.radioButton3.Text = Convert.ToString(Q.optns[2]);
-            //this.radioButton4.Text = Convert.ToString(Q.optns[3]);
+            this.ques_no.Text = Convert.ToString(Q.DispQues_No) + " >";
+            this.Label1_question.Text = Convert.ToString(Q.question);
+            this.RadioButton1.Text = Convert.ToString(Q.optns[0]);
+            this.RadioButton2.Text = Convert.ToString(Q.optns[1]);
+            this.RadioButton3.Text = Convert.ToString(Q.optns[2]);
+            this.RadioButton4.Text = Convert.ToString(Q.optns[3]);
 
         }
 
