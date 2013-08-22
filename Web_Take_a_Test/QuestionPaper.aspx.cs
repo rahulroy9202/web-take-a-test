@@ -17,7 +17,8 @@ namespace Web_Take_a_Test
         int Total_no_of_Q;
         int selected_answer;
         Question currentQ = new Question();
-
+        //string evaluate_radio_button;
+        RadioButton rb_selected;
         Question[] questionBank;
         ListItem options = new ListItem();
 
@@ -25,6 +26,7 @@ namespace Web_Take_a_Test
         {
             build_questions();
             display_Question(currentQ);
+           // PreviousB.Enabled = false;
         }
 
         public void build_questions()
@@ -67,7 +69,7 @@ namespace Web_Take_a_Test
         {
 
             Q.AnswerChanged = false;
-            this.ques_no.Text = Convert.ToString(Q.DispQues_No) + " >";
+            this.ques_no.Text = Convert.ToString(Q.DispQues_No) + " .";
             this.Label1_question.Text = Convert.ToString(Q.question);
             this.RadioButton1.Text = Convert.ToString(Q.optns[0]);
             this.RadioButton2.Text = Convert.ToString(Q.optns[1]);
@@ -83,6 +85,123 @@ namespace Web_Take_a_Test
 
 
 
+
+
+
+
+
+        private void set_radio_button()
+        {
+            if (currentQ.selected_answer_No == 1)
+                RadioButton1.Checked = true;
+            else
+                RadioButton1.Checked = false;
+
+            if (currentQ.selected_answer_No == 2)
+                RadioButton2.Checked = true;
+            else
+                RadioButton2.Checked = false;
+
+            if (currentQ.selected_answer_No == 3)
+                RadioButton3.Checked = true;
+            else
+                RadioButton3.Checked = false;
+
+            if (currentQ.selected_answer_No == 4)
+                RadioButton4.Checked = true;
+            else
+                RadioButton4.Checked = false;
+            currentQ.AnswerChanged = false;
+        }
+
+
+
+
+        private void commit_answer()
+        {
+            if (currentQ.AnswerChanged)
+            {
+
+                currentQ.selected_answer_No = selected_answer;
+                selected_answer = 0;
+                currentQ.AnswerChanged = false;
+
+            }
+
+        }
+
+
+
+        private void check_buttons()
+        {/*
+            if (currentQ.DispQues_No >= 2 & currentQ.DispQues_No <= 10)
+            {
+                PreviousB.Enabled = true;
+            }
+            else
+                NextB.Enabled = false;
+
+            if (currentQ.DispQues_No >= 1 & currentQ.DispQues_No <= 9)
+            {
+                PreviousB.Enabled = true;
+            }
+            else
+                NextB.Enabled = false;
+            */
+
+        }
+
+        protected void PreviousB_Click(object sender, EventArgs e)
+        {
+            commit_answer();
+            check_buttons();
+            if (currentQ.DispQues_No != 1)
+            {
+                currentQ = questionBank[(currentQ.DispQues_No - 2)];
+                this.display_Question(currentQ);
+                set_radio_button();
+                currentQ.AnswerChanged = false;
+                check_buttons();
+            }
+
+        }
+
+        protected void NextB_Click(object sender, EventArgs e)
+        {
+            commit_answer();
+
+
+            currentQ = questionBank[currentQ.DispQues_No];
+            this.display_Question(currentQ);
+            set_radio_button();
+            check_buttons();
+
+        }
+
+        protected void SummaryB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void FinishB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            rb_selected = (RadioButton)sender;
+
+            selected_answer = rb_selected.TabIndex;
+            
+            rb_selected.Text = "selected_answer";
+            
+
+            
+            currentQ.AnswerChanged = true;
+            
+            
+        }
 
 
     }
