@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+
 <asp:Panel ID="Question_Paper_Panel" runat="server" Wrap="True"         
         
         
@@ -20,27 +21,29 @@
             
             style="z-index: 1; left: 20px; top: 16px; position: absolute; height: 17px; font-weight: 700;" 
             Font-Bold="True" ></asp:Label>
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
     </asp:Panel>
 
 
     <asp:Panel ID="Options_Panel" runat="server" Wrap="True" Height="200" Width="450"                 
         style="position: absolute; z-index: 1; left: 10%; top: 60%; height: 100px; width: 80%">
-        <asp:RadioButton ID="RadioButton2" runat="server"                     
-            
+               
+        <asp:RadioButton ID="RadioButton2" runat="server"                                
             style="position: absolute; z-index: 1; left: 10%; top: 50%; font-weight: 700;" 
-            oncheckedchanged="radioButton_CheckedChanged" TabIndex="2" />
+            oncheckedchanged="radioButton_CheckedChanged" TabIndex="2" AutoPostBack=true />
         <asp:RadioButton ID="RadioButton1" runat="server" 
             style="position: absolute; z-index: 1; left: 10%; top: 10px" 
             CssClass="bold" oncheckedchanged="radioButton_CheckedChanged" 
-            TabIndex="1" />
+            TabIndex="1"  AutoPostBack=true/>
         <asp:RadioButton ID="RadioButton3" runat="server" 
             style="position: absolute; z-index: 1; left: 80%; top: 10px" 
             CssClass="bold" oncheckedchanged="radioButton_CheckedChanged" 
-            TabIndex="3" />
+            TabIndex="3" AutoPostBack=true />
         <asp:RadioButton ID="RadioButton4" runat="server" 
             style="position: absolute; z-index: 1; left: 80%; top: 50%" 
             CssClass="bold" oncheckedchanged="radioButton_CheckedChanged" 
-            TabIndex="4" />
+            TabIndex="4" AutoPostBack=true />
+            
      </asp:Panel>   
     
 
@@ -66,7 +69,8 @@
     
     </asp:Panel>
 
-
+    
+    
 
         
 </asp:Panel>

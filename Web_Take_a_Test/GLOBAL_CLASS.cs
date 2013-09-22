@@ -9,6 +9,7 @@ namespace Web_Take_a_Test
     {
         public bool is_admin;
         public string User_ID;
+        public int quesNo=0;
     }
 
     public class Question
@@ -38,7 +39,6 @@ namespace Web_Take_a_Test
             optns[1] = x2;
             optns[2] = x3;
             optns[3] = x4;
-
 
         }
 

@@ -11,41 +11,51 @@ using System.Data.SqlClient;
 namespace Web_Take_a_Test
 {
     public partial class QuestionPaper : System.Web.UI.Page
-    {
-
-        int i;
-        int Total_no_of_Q;
+    {        
+        int count;
         int selected_answer;
         Question currentQ = new Question();
-        //string evaluate_radio_button;
         RadioButton rb_selected;
         Question[] questionBank;
         ListItem options = new ListItem();
+        RadioButton[] RB_optns_array;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["count"] == null)
+            {
+                PreviousB.Enabled = false;
+                Session["count"] = 1;
+            }
+            count = (int)Session["count"];
+
+            if (Session[count.ToString()]!=null)
+            selected_answer = (int)Session[count.ToString()];           
+
+            check_buttons();
             build_questions();
             display_Question(currentQ);
-           // PreviousB.Enabled = false;
+            RB_optns_array = new RadioButton[4];
+            RB_optns_array[0] = RadioButton1;
+            RB_optns_array[1] = RadioButton2;
+            RB_optns_array[2] = RadioButton3;
+            RB_optns_array[3] = RadioButton4;
+            Button1.Text = count.ToString() + "x" +currentQ.DBquestion_No.ToString() +selected_answer;
+            user usr = new user();
+            check_RB_consistancy();
         }
 
         public void build_questions()
         {
-
-            i = 0;
             SqlConnection con_question = new SqlConnection("Data Source=RAHULROY-DESKPC\\RAHULROYDESKTOP;Initial Catalog=EvaluateYourSelf;Integrated Security=True");
             con_question.Open();
-            SqlCommand cmdx = new SqlCommand("select count(*) from questions_DB", con_question);
-            Total_no_of_Q = Convert.ToInt32(cmdx.ExecuteScalar());
-            questionBank = new Question[Total_no_of_Q];
-            SqlCommand cmd = new SqlCommand("Select * from questions_DB", con_question);
-            SqlDataReader dr = cmd.ExecuteReader();
+            SqlCommand cmdx = new SqlCommand("select * from questions_DB where question_No = "+count, con_question);
+            questionBank = new Question[1];
+            SqlDataReader dr = cmdx.ExecuteReader();
             while (dr.Read())
             {
-
-
-                questionBank[i] = new Question(false,
-                (++i),
+                questionBank[0] = new Question(false,
+                (count),
                 Convert.ToInt32(dr[0]),
                 Convert.ToInt32(dr[1]),
                 Convert.ToString(dr[2]),
@@ -57,18 +67,13 @@ namespace Web_Take_a_Test
             }
             dr.Close();
             con_question.Close();
-            i = 0;
             currentQ = questionBank[0];
 
         }
 
-        
-
-
         public void display_Question(Question Q)
         {
-
-            Q.AnswerChanged = false;
+            Q.AnswerChanged = false;            
             this.ques_no.Text = Convert.ToString(Q.DispQues_No) + " .";
             this.Label1_question.Text = Convert.ToString(Q.question);
             this.RadioButton1.Text = Convert.ToString(Q.optns[0]);
@@ -77,17 +82,6 @@ namespace Web_Take_a_Test
             this.RadioButton4.Text = Convert.ToString(Q.optns[3]);
 
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
         private void set_radio_button()
@@ -115,14 +109,13 @@ namespace Web_Take_a_Test
         }
 
 
-
-
         private void commit_answer()
         {
             if (currentQ.AnswerChanged)
             {
 
-                currentQ.selected_answer_No = selected_answer;
+
+                //currentQ.selected_answer_No = selected_answer;
                 selected_answer = 0;
                 currentQ.AnswerChanged = false;
 
@@ -131,51 +124,36 @@ namespace Web_Take_a_Test
         }
 
 
-
         private void check_buttons()
-        {/*
-            if (currentQ.DispQues_No >= 2 & currentQ.DispQues_No <= 10)
+        {
+            if (count >= 2 & count <= 10)
             {
                 PreviousB.Enabled = true;
             }
             else
-                NextB.Enabled = false;
+                PreviousB.Enabled = false;
 
-            if (currentQ.DispQues_No >= 1 & currentQ.DispQues_No <= 9)
+            if (count >= 1 & count <= 9)
             {
-                PreviousB.Enabled = true;
+                NextB.Enabled = true;
             }
             else
                 NextB.Enabled = false;
-            */
-
+            
+            Button1.Text = count.ToString() + "x" + currentQ.DBquestion_No.ToString();
         }
 
         protected void PreviousB_Click(object sender, EventArgs e)
         {
-            commit_answer();
-            check_buttons();
-            if (currentQ.DispQues_No != 1)
-            {
-                currentQ = questionBank[(currentQ.DispQues_No - 2)];
-                this.display_Question(currentQ);
-                set_radio_button();
-                currentQ.AnswerChanged = false;
-                check_buttons();
-            }
-
+            Session["count"] = --count;
+            Response.Redirect("QuestionPaper.aspx");
+            
         }
 
         protected void NextB_Click(object sender, EventArgs e)
         {
-            commit_answer();
-
-
-            currentQ = questionBank[currentQ.DispQues_No];
-            this.display_Question(currentQ);
-            set_radio_button();
-            check_buttons();
-
+            Session["count"] = ++count;
+            Response.Redirect("QuestionPaper.aspx");
         }
 
         protected void SummaryB_Click(object sender, EventArgs e)
@@ -191,15 +169,33 @@ namespace Web_Take_a_Test
         protected void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             rb_selected = (RadioButton)sender;
-
             selected_answer = rb_selected.TabIndex;
             
-            rb_selected.Text = "selected_answer";
-            
+            Session[count.ToString()] = selected_answer;
 
-            
+            //rb_selected.Text = "selected_answer";
+            if(RadioButton1.TabIndex==(short)selected_answer)            
             currentQ.AnswerChanged = true;
             
+            check_RB_consistancy();            
+        }
+
+        private void check_RB_consistancy()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (selected_answer - 1==i)
+                {
+                    RB_optns_array[i].Checked = true;
+                    continue;
+                }
+                RB_optns_array[i].Checked = false;
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            check_RB_consistancy();
             
         }
 

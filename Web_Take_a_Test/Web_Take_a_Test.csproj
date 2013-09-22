@@ -58,13 +58,16 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="QuestionPaper.aspx" />
+    <Content Include="review.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -133,6 +136,13 @@
     </Compile>
     <Compile Include="QuestionPaper.aspx.designer.cs">
       <DependentUpon>QuestionPaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="review.aspx.cs">
+      <DependentUpon>review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="review.aspx.designer.cs">
+      <DependentUpon>review.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
